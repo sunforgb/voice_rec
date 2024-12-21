@@ -1,4 +1,4 @@
-FROM python:3.11.5-slim-bookworm 
+FROM python:3.11.5-slim-bookworm as builder
 
 ENV PYTHONUNBUFFERED=1 \
     POETRY_NO_INTERACTION=1 \
@@ -11,7 +11,8 @@ RUN apt update && apt install -y curl
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-#WORKDIR /project
-#COPY poetry.lock pyproject.toml /project/
+WORKDIR /voice_rec_project
+COPY . /voice_rec_project/
 
-#RUN poetry install $(test "$YOUR_ENV" == production && echo "--only=main") --no-interaction --no-ansi
+RUN poetry install --no-interaction --no-ansi
+
