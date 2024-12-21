@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+    voice_rec_proj:
+        container_name: VoiceRec
+        image: voice_rec
+        build: .
+        env_file: ".env"
+        volumes:
+          - ./:/voice_rec_project
+        restart: on-failure
+        command: python3 bot/bot.py

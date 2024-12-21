@@ -7,12 +7,12 @@ ENV PYTHONUNBUFFERED=1 \
     POETRY_HOME='/usr/local' \
     PYTHONDONTWRITEBYTECODE=1
 
-RUN apt update && apt install -y curl
+RUN apt update && apt install -y curl ffmpeg
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 WORKDIR /voice_rec_project
-COPY . /voice_rec_project/
+COPY poetry.lock pyproject.toml /voice_rec_project/
 
 RUN poetry install --no-interaction --no-ansi
 

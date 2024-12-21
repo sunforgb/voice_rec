@@ -9,6 +9,9 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.11"
 aiogram = "^3.15.0"
+asyncio = "^3.4.3"
+pydub = "^0.25.1"
+vosk = "^0.3.45"
 
 
 [build-system]
