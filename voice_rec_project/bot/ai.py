@@ -7,7 +7,8 @@ from vosk import KaldiRecognizer, Model
 
 
 async def wav_to_text(path: str):
-    model = Model(lang="ru")
+    print(os.listdir("./vosk-model-ru-0.42"))
+    model = Model(model_path="./vosk-model-ru-0.42")
     rec = KaldiRecognizer(model, 16000)
     with open (path, "rb") as wf:
         wf.read(44)

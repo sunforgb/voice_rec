@@ -171,5 +171,5 @@ cython_debug/
 .pypirc
 
 # vosk model
-voice_files/
+*.wav
 vosk-*/
