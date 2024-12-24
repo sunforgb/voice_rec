@@ -173,3 +173,4 @@ cython_debug/
 # vosk model
 *.wav
 vosk-*/
+speakers.json

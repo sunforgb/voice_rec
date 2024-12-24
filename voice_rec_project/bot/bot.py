@@ -56,9 +56,9 @@ async def audio_to_text(path: str):
 @dp.message(F.content_type == "voice")
 async def process_voice (message: types.Message, bot: Bot):
     voice_path = await save_voice_as_mp3(bot, message.voice)
-    answer = await audio_to_text(voice_path)
+    name, answer = await audio_to_text(voice_path)
     os.remove(voice_path)
-    await message.reply(text=answer)
+    await message.reply(text=f"{name} : {answer}")
 
 
 async def main():
